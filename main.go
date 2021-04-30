@@ -4,10 +4,12 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 
 	"github.com/bwmarrin/discordgo"
 	env "github.com/joho/godotenv"
+	"github.com/zackwn/pollbot/poll"
 )
 
 func main() {
@@ -47,4 +49,24 @@ func messageHandler(session *discordgo.Session, message *discordgo.MessageCreate
 		return
 	}
 
+	if message.Content[0] == '!' {
+		mc := strings.SplitN(message.Content, " ", 2)
+		if len(mc) <= 1 {
+			return
+		}
+
+		if mc[0] == "!poll" {
+			poll := poll.NewPoll([]rune(mc[1]))
+
+			embed := poll.BuildEmbed()
+			author := &discordgo.MessageEmbedAuthor{
+				Name:    message.Author.Username,
+				IconURL: message.Author.AvatarURL("48x48"),
+			}
+			embed.Author = author
+
+			poll.Start(embed, session, message.Message)
+			return
+		}
+	}
 }
