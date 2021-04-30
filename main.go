@@ -56,7 +56,7 @@ func messageHandler(session *discordgo.Session, message *discordgo.MessageCreate
 		}
 
 		if mc[0] == "!poll" {
-			poll := poll.NewPoll([]rune(mc[1]))
+			poll := poll.NewPoll(message.Author.ID, []rune(mc[1]))
 
 			embed := poll.BuildEmbed()
 			author := &discordgo.MessageEmbedAuthor{
@@ -66,6 +66,7 @@ func messageHandler(session *discordgo.Session, message *discordgo.MessageCreate
 			embed.Author = author
 
 			poll.Start(embed, session, message.Message)
+			session.ChannelMessageDelete(message.ChannelID, message.ID)
 			return
 		}
 	}
