@@ -1,13 +1,31 @@
+# github.com/Bowery/prompt v0.0.0-20190916142128-fa8279994f75
+## explicit
 # github.com/bwmarrin/discordgo v0.23.2
 ## explicit
 github.com/bwmarrin/discordgo
+# github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185
+## explicit
+# github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
+## explicit
 # github.com/gorilla/websocket v1.4.0
 github.com/gorilla/websocket
 # github.com/joho/godotenv v1.3.0
 ## explicit
 github.com/joho/godotenv
-# golang.org/x/crypto v0.0.0-20181030102418-4d3f4d9ffa16
+# github.com/kardianos/govendor v1.0.9
+## explicit
+# github.com/pkg/errors v0.9.1
+## explicit
+# golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+## explicit
 golang.org/x/crypto/internal/subtle
 golang.org/x/crypto/nacl/secretbox
 golang.org/x/crypto/poly1305
 golang.org/x/crypto/salsa20/salsa
+# golang.org/x/sys v0.0.0-20210426230700-d19ff857e887
+## explicit
+golang.org/x/sys/cpu
+# golang.org/x/tools v0.1.0
+## explicit
+# gopkg.in/yaml.v2 v2.4.0
+## explicit
