@@ -1,3 +1,4 @@
 .env
 *.exe
+*.mp4
 tmp
