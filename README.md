@@ -1,5 +1,7 @@
 <h1 align="center">
-    Discord Poll bot <br/><br/>
+    <img align="center" width="48" src=".github/pollbot.jpg">
+    Discord Poll bot
+    <br/><br/>
     <img src=".github/pollbot.gif">
 </h1>
 

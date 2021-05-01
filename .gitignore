@@ -1,4 +1,5 @@
 .env
 *.exe
 *.mp4
+*.psd
 tmp
