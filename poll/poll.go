@@ -22,6 +22,18 @@ var (
 	checkmarkemoji = "\u2705"
 )
 
+type PollError struct {
+	message string
+}
+
+func (err PollError) Error() string {
+	return err.message
+}
+
+func newPollError(message string) PollError {
+	return PollError{message: message}
+}
+
 type Poll struct {
 	Question string
 	Answers  []string
@@ -90,10 +102,9 @@ func (poll *Poll) BuildEmbed() *discordgo.MessageEmbed {
 	}
 }
 
-func NewPoll(authorID string, text []rune) *Poll {
+func NewPoll(authorID string, text []rune) (*Poll, error) {
 	poll := new(Poll)
 	poll.authorID = authorID
-
 	i := 0
 	gotquestion := false
 	for i < len(text) {
@@ -118,5 +129,8 @@ func NewPoll(authorID string, text []rune) *Poll {
 			i++
 		}
 	}
-	return poll
+	if len(poll.Answers) > 10 {
+		return nil, newPollError("error: there can only be up to 10 asnwers")
+	}
+	return poll, nil
 }
