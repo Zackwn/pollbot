@@ -130,7 +130,7 @@ func NewPoll(authorID string, text []rune) (*Poll, error) {
 		}
 	}
 	if len(poll.Answers) > 10 {
-		return nil, newPollError("error: there can only be up to 10 asnwers")
+		return nil, newPollError("error: There can only be up to 10 asnwers")
 	}
 	return poll, nil
 }
