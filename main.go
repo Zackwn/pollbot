@@ -11,6 +11,7 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 	env "github.com/joho/godotenv"
+	"github.com/zackwn/pollbot/gol"
 	"github.com/zackwn/pollbot/poll"
 )
 
@@ -105,6 +106,8 @@ func messageHandler(session *discordgo.Session, message *discordgo.MessageCreate
 			// generate and send lissajous
 			r := Lissajous(cycles, palette)
 			session.ChannelFileSend(message.ChannelID, "lissajous.gif", r)
+		case "!life":
+			gol.Run(session, message)
 		}
 	}
 }
